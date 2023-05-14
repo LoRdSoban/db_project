@@ -24,7 +24,7 @@ namespace db_project
 
         private void login_Load(object sender, EventArgs e)
         {
-            Connect DB_Connect = new Connect();
+            DB_Connect = new Connect();
         }
 
         private void label3_Click(object sender, EventArgs e)
