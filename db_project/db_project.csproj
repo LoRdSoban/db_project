@@ -65,6 +65,7 @@
     <Compile Include="category.Designer.cs">
       <DependentUpon>category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="cust2.cs">
       <SubType>Form</SubType>

@@ -239,5 +239,33 @@ namespace db_project
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report obj = new report();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void inventoryReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report obj = new report();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void customerReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report obj = new report();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void vendorReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report obj = new report();
+            obj.Show();
+            this.Hide();
+        }
     }
 }

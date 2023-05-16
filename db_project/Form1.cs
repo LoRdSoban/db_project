@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 
+
 namespace db_project
 {
+
     public partial class login : Form
     {
         Connect DB_Connect;
@@ -43,7 +45,8 @@ namespace db_project
         public void button1_Click(object sender, EventArgs e)  // login button
         {
             string id = textBox2.Text;
-            string query = "SELECT emp_password, emp_position, emp_email FROM Employees WHERE emp_id = :emp_id";
+            con = DB_Connect.connect();
+            string query = "SELECT emp_password, emp_position, emp_email, emp_name FROM Employees WHERE emp_id = :emp_id";
             using (OracleCommand command = new OracleCommand(query, con))
             {
                 command.Parameters.Add("emp_id", OracleDbType.Varchar2).Value = id;
@@ -56,19 +59,22 @@ namespace db_project
                             string password = reader.GetString(0);
                             string position = reader.GetString(1);
                             string email = reader.GetString(2);
+                            string name = reader.GetString(3);
 
-                            if (password == password_text.Text && email ==username_text.Text && position == "Salesman")
+                            if (password == password_text.Text && email == username_text.Text && position == "Salesman")
                             {
                                 // Login successful
+                                LoginDetails.SalesmanID = id;
+                                LoginDetails.SalesmanName = name;
+
                                 salesman obj = new salesman();
                                 obj.Show();
                                 this.Hide();
-
                             }
                             else
                             {
                                 // Login failed
-                                MessageBox.Show("Access denied");
+                                MessageBox.Show("Wrong Credentials");
                             }
                         }
                         else
@@ -94,6 +100,10 @@ namespace db_project
 
         private void button2_Click(object sender, EventArgs e) //clear
         {
+            salesman obj = new salesman();
+            obj.Show();
+            this.Hide();
+
             textBox2.Text = string.Empty;
             username_text.Text = string.Empty;
             password_text.Text = string.Empty;
@@ -114,7 +124,7 @@ namespace db_project
         {
             string id = textBox3.Text;
             con = DB_Connect.connect();
-            string query = "SELECT emp_password, emp_position, emp_email FROM Employees WHERE emp_id = :emp_id";
+            string query = "SELECT emp_password, emp_position, emp_email, emp_name FROM Employees WHERE emp_id = :emp_id";
             using (OracleCommand command = new OracleCommand(query, con))
             {
                command.Parameters.Add("emp_id",OracleDbType.Varchar2).Value= id;
@@ -127,9 +137,12 @@ namespace db_project
                             string password = reader.GetString(0);
                             string position = reader.GetString(1);
                             string email = reader.GetString(2);
-                            
+                            string name = reader.GetString(3);
+
                             if (password == textBox1.Text && email == textBox4.Text && position == "Admin")
                             {
+                                LoginDetails.AdminID = id;
+                                LoginDetails.AdminName = name;
                                 // Login successful
                                 MessageBox.Show("Welcome to Admin Menu");
                                 main obj = new main();

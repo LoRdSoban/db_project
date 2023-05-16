@@ -38,5 +38,33 @@ namespace db_project
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            main obj = new main();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            main obj = new main();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            main obj = new main();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            main obj = new main();
+            obj.Show();
+            this.Hide();
+        }
     }
 }

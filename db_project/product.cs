@@ -75,8 +75,8 @@ namespace db_project
                     command.Parameters.Add(new OracleParameter("cat", category_add.SelectedValue));
                     command.Parameters.Add(new OracleParameter("sale", salePrice));
                     command.Parameters.Add(new OracleParameter("purchase", purchasePrice));
-                    command.Parameters.Add(new OracleParameter("left", salePrice));
-                    command.Parameters.Add(new OracleParameter("reorder", salePrice));
+                    command.Parameters.Add(new OracleParameter("left", left));
+                    command.Parameters.Add(new OracleParameter("reorder", reorder));
 
                     int i = command.ExecuteNonQuery();
 
@@ -139,8 +139,8 @@ namespace db_project
                     command.Parameters.Add(new OracleParameter("cat", category_update.SelectedValue));
                     command.Parameters.Add(new OracleParameter("sale", salePrice));
                     command.Parameters.Add(new OracleParameter("purchase", purchasePrice));
-                    command.Parameters.Add(new OracleParameter("left", salePrice));
-                    command.Parameters.Add(new OracleParameter("reorder", salePrice));
+                    command.Parameters.Add(new OracleParameter("left", left));
+                    command.Parameters.Add(new OracleParameter("reorder", reorder));
                     
                     command.Parameters.Add(new OracleParameter("id", prodID_update.Text));
 
