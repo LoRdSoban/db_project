@@ -25,6 +25,7 @@ namespace db_project
         {
             DB_Connect= new Connect();
             loadProducts();
+            loadVendors();
             loadVendorID();
         }
 
@@ -45,9 +46,29 @@ namespace db_project
             Product_add.DisplayMember = "product_name";
             Product_add.ValueMember = "product_id";
 
+            //Product_update.DataSource = dataSet.Tables[0];
+            //Product_update.DisplayMember = "product_name";
+            //Product_update.ValueMember = "product_id";
+        }
+
+        private void loadVendors()
+        {
+            con = DB_Connect.connect();
+
+            string query = "SELECT * FROM VENDOR";
+            OracleCommand command = new OracleCommand(query, con);
+            OracleDataAdapter da = new OracleDataAdapter(command);
+
+            DataSet dataSet = new DataSet();
+            da.Fill(dataSet);
+            command.ExecuteNonQuery();
+            con.Close();
+
             Product_update.DataSource = dataSet.Tables[0];
-            Product_update.DisplayMember = "product_name";
-            Product_update.ValueMember = "product_id";
+            Product_update.DisplayMember = "V_NAME";
+            Product_update.ValueMember = "V_ID";
+
+
         }
 
         private void loadVendorID()

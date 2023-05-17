@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using DGVPrinterHelper;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -30,6 +31,7 @@ namespace db_project
             loadInvoiceNo();
 
             salesmanName.Text = LoginDetails.SalesmanName;
+            salesmanID.Text = LoginDetails.SalesmanID;
 
             //tabPage2.Text = "Receipt";
             // product.TabPages.Add(tabPage2);
@@ -416,6 +418,27 @@ namespace db_project
             loadInvoiceNo();
         }
 
+        private void print_btn_Click(object sender, EventArgs e)
+        {
+            DGVPrinterHelper.DGVPrinter printer = new DGVPrinter();
+            printer.Title = "\n\n\nShop Management System \n\n";//Header
+            printer.SubTitle = string.Format("LoonayWala, Faisalabad \n Phone: 0300-9876543 \n\n Date: {0}", DateTime.Now.Date.ToString("MM/dd/yyyy"));
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+
+            printer.FooterAlignment = StringAlignment.Near;
+            printer.FooterSpacing = 15;
+            printer.FooterFont = new Font("Tahoma", 24.0f);
+            printer.Footer = "Total: Rs. " + Total_textbox.Text;
+
+            printer.printDocument.DefaultPageSettings.Landscape = false;
+
+            printer.PrintPreviewDataGridView(dataGridView2);
+            //printer.PrintDataGridView(dataGridView2);
+        }
         void AddProductToDB(string prodID, int new_quantity)
         {
             try
@@ -501,5 +524,17 @@ namespace db_project
         {
 
         }
+
+        private void label11_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void custID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

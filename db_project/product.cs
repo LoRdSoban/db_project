@@ -61,12 +61,11 @@ namespace db_project
 
                 con = DB_Connect.connect();
 
-                string query = "INSERT INTO PRODUCT VALUES (:id, :name, :rack, :cat, :sale, :purchase, :left, :reorder)";
+                string query = "INSERT INTO PRODUCT VALUES (:id, :name, :rack, :cat, :sale, :purchase, 0, :reorder)";
                 using (OracleCommand command = new OracleCommand(query, con))
                 {
                     int salePrice = Convert.ToInt32(salePrice_add.Text);
                     int purchasePrice = Convert.ToInt32(purchasePrice_add.Text);
-                    int left = Convert.ToInt32(quantity_add.Text);
                     int reorder = Convert.ToInt32(reorderPoint_add.Text);
 
                     command.Parameters.Add(new OracleParameter("id", prodID_add.Text));
@@ -75,7 +74,6 @@ namespace db_project
                     command.Parameters.Add(new OracleParameter("cat", category_add.SelectedValue));
                     command.Parameters.Add(new OracleParameter("sale", salePrice));
                     command.Parameters.Add(new OracleParameter("purchase", purchasePrice));
-                    command.Parameters.Add(new OracleParameter("left", left));
                     command.Parameters.Add(new OracleParameter("reorder", reorder));
 
                     int i = command.ExecuteNonQuery();
@@ -108,7 +106,6 @@ namespace db_project
             rackID_add.Clear();
             salePrice_add.Clear();
             purchasePrice_add.Clear();
-            quantity_add.Clear();
             reorderPoint_add.Clear();
         }
 
@@ -126,12 +123,11 @@ namespace db_project
 
                 con = DB_Connect.connect();
 
-                string query = "UPDATE PRODUCT SET product_name = :name, rack_id = :rack, categ_id = :cat, sale_price = :sale, purchase_price = :purchase, quantity_left = :left, reorder_point = :reorder WHERE  product_id = :id";
+                string query = "UPDATE PRODUCT SET product_name = :name, rack_id = :rack, categ_id = :cat, sale_price = :sale, purchase_price = :purchase, reorder_point = :reorder WHERE  product_id = :id";
                 using (OracleCommand command = new OracleCommand(query, con))
                 {
                     int salePrice = Convert.ToInt32(salePrice_update.Text);
                     int purchasePrice = Convert.ToInt32(purchasePrice_update.Text);
-                    int left = Convert.ToInt32(quantity_update.Text);
                     int reorder = Convert.ToInt32(reorderPoint_update.Text);
 
                     command.Parameters.Add(new OracleParameter("name", name_update.Text));
@@ -139,7 +135,6 @@ namespace db_project
                     command.Parameters.Add(new OracleParameter("cat", category_update.SelectedValue));
                     command.Parameters.Add(new OracleParameter("sale", salePrice));
                     command.Parameters.Add(new OracleParameter("purchase", purchasePrice));
-                    command.Parameters.Add(new OracleParameter("left", left));
                     command.Parameters.Add(new OracleParameter("reorder", reorder));
                     
                     command.Parameters.Add(new OracleParameter("id", prodID_update.Text));
@@ -174,7 +169,6 @@ namespace db_project
             rackID_update.Clear();
             salePrice_update.Clear();
             purchasePrice_update.Clear();
-            quantity_update.Clear();
             reorderPoint_update.Clear();
         }
         private void button4_Click(object sender, EventArgs e)
@@ -243,7 +237,6 @@ namespace db_project
                             category_update.SelectedValue = reader.GetString(3);
                             salePrice_update.Text = Convert.ToString(reader.GetInt32(4));
                             purchasePrice_update.Text = Convert.ToString(reader.GetInt32(5));
-                            quantity_update.Text = Convert.ToString(reader.GetInt32(6));
                             reorderPoint_update.Text = Convert.ToString(reader.GetInt32(7));
 
 
@@ -350,6 +343,16 @@ namespace db_project
             }
 
             prodID_search.Clear();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prodID_search_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

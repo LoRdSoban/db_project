@@ -272,5 +272,12 @@ namespace db_project
         {
 
         }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            order obj = new order();
+            obj.Show();
+            this.Hide();
+        }
     }
 }
