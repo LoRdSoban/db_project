@@ -42,7 +42,7 @@ namespace db_project
 
                 con = DB_Connect.connect();
 
-                string query = "SELECT inv_id_seq.CURRVAL FROM dual";
+                string query = "SELECT COUNT(*) FROM RECEIPTS";
                 using (OracleCommand command = new OracleCommand(query, con))
                 {
 
@@ -309,7 +309,7 @@ namespace db_project
 
         private bool custID_exist(string id)
         {
-
+            bool found;
             try
             {
                 con = DB_Connect.connect();
@@ -320,18 +320,21 @@ namespace db_project
                     //string theDate = date.Value.ToString("dd-MM-yyyy");
 
                     command.Parameters.Add(new OracleParameter("id", custID.Text));
-                  
-                    int i = command.ExecuteNonQuery();
 
-                    con.Close();
-                    
-                    if(i == 1)
+                    using (OracleDataReader reader = command.ExecuteReader())
                     {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
+                        if (reader.HasRows)
+                        {
+                            found = true;
+                        }
+                        else
+                        {
+                            found = false;
+                        }
+
+                        con.Close();
+
+                        return found;
                     }
                 }
 
@@ -397,6 +400,8 @@ namespace db_project
                 }
 
                 dataGridView2.Rows.Clear();
+                MessageBox.Show("Receipt Added Successful!", "Captions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 con.Close();
             }
             catch (Exception ex)
@@ -408,7 +413,7 @@ namespace db_project
                 if (con != null)
                     con.Close();
             }
-
+            loadInvoiceNo();
         }
 
         void AddProductToDB(string prodID, int new_quantity)

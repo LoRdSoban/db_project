@@ -205,5 +205,10 @@ namespace db_project
             id_update.Clear();
             name_update.Clear();
         }
+
+        private void id_add_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

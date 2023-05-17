@@ -53,12 +53,6 @@
     <Compile Include="accmanage.Designer.cs">
       <DependentUpon>accmanage.cs</DependentUpon>
     </Compile>
-    <Compile Include="admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="admin.Designer.cs">
-      <DependentUpon>admin.cs</DependentUpon>
-    </Compile>
     <Compile Include="category.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,9 +125,6 @@
     </Compile>
     <EmbeddedResource Include="accmanage.resx">
       <DependentUpon>accmanage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="admin.resx">
-      <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="category.resx">
       <DependentUpon>category.cs</DependentUpon>

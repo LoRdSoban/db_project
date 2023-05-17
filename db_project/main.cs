@@ -267,5 +267,10 @@ namespace db_project
             obj.Show();
             this.Hide();
         }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

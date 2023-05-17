@@ -30,21 +30,19 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search_btn = new System.Windows.Forms.Button();
+            this.vendorID_search = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -56,42 +54,44 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.search_btn);
+            this.panel2.Controls.Add(this.vendorID_search);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(11, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(461, 351);
+            this.panel2.Size = new System.Drawing.Size(461, 393);
             this.panel2.TabIndex = 32;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 141);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 128);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(445, 157);
+            this.dataGridView1.Size = new System.Drawing.Size(445, 215);
             this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // button1
+            // search_btn
             // 
-            this.button1.BackColor = System.Drawing.Color.RosyBrown;
-            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(370, 304);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
+            this.search_btn.BackColor = System.Drawing.Color.RosyBrown;
+            this.search_btn.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_btn.Location = new System.Drawing.Point(373, 349);
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(75, 33);
+            this.search_btn.TabIndex = 38;
+            this.search_btn.Text = "Search";
+            this.search_btn.UseVisualStyleBackColor = false;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
-            // textBox1
+            // vendorID_search
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Snow;
-            this.textBox1.Location = new System.Drawing.Point(160, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 22;
+            this.vendorID_search.BackColor = System.Drawing.Color.Snow;
+            this.vendorID_search.Location = new System.Drawing.Point(160, 85);
+            this.vendorID_search.Name = "vendorID_search";
+            this.vendorID_search.Size = new System.Drawing.Size(100, 20);
+            this.vendorID_search.TabIndex = 22;
             // 
             // label6
             // 
@@ -115,44 +115,23 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Search";
             // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.Snow;
-            this.textBox6.Location = new System.Drawing.Point(163, 85);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 23;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.RosyBrown;
-            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 22);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Vendor Id";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightGray;
             this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(478, 60);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(557, 414);
+            this.panel3.Size = new System.Drawing.Size(557, 446);
             this.panel3.TabIndex = 33;
             // 
             // dataGridView2
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 150);
+            this.dataGridView2.Location = new System.Drawing.Point(7, 69);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(550, 261);
+            this.dataGridView2.Size = new System.Drawing.Size(550, 355);
             this.dataGridView2.TabIndex = 40;
             // 
             // label4
@@ -181,7 +160,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.RosyBrown;
             this.button4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(11, 417);
+            this.button4.Location = new System.Drawing.Point(11, 459);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(80, 39);
             this.button4.TabIndex = 34;
@@ -201,17 +180,17 @@
             this.panel1.Size = new System.Drawing.Size(1436, 69);
             this.panel1.TabIndex = 31;
             // 
-            // button6
+            // button3
             // 
-            this.button6.BackColor = System.Drawing.Color.RosyBrown;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(1197, 23);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(34, 25);
-            this.button6.TabIndex = 35;
-            this.button6.Text = "X";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button3.BackColor = System.Drawing.Color.RosyBrown;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(1124, 23);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(34, 25);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "-";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -225,29 +204,30 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // button6
             // 
-            this.button3.BackColor = System.Drawing.Color.RosyBrown;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1124, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 25);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "-";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button6.BackColor = System.Drawing.Color.RosyBrown;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(1197, 23);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(34, 25);
+            this.button6.TabIndex = 35;
+            this.button6.Text = "X";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // vend2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 458);
+            this.ClientSize = new System.Drawing.Size(1075, 505);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
             this.Name = "vend2";
             this.Text = "vend2";
+            this.Load += new System.EventHandler(this.vend2_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -264,13 +244,11 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button search_btn;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox vendorID_search;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label4;
